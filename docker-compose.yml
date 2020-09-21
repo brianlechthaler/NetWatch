@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+# Suricata service
+  suricata:
+    container_name: suricata
+    restart: always
+    environment:
+    # For ET Pro ruleset replace "OPEN" with your OINKCODE
+     - OINKCODE=OPEN
+    network_mode: "host"
+    cap_add:
+     - NET_ADMIN
+     - SYS_NICE
+     - NET_RAW
+    image: "ghcr.io/telekom-security/suricata:2006"
+    volumes:
+     - /opt/netwatch/suricata/log:/var/log/suricata
+
+# Filebeat Service
+  filebeat:
+    container_name: filebeat
+    restart: always
+    image: "docker.elastic.co/beats/filebeat:7.9.1"
+    volumes:
+     - /opt/netwatch/log/suricata:/host/opt/netwatch/log/suricata:ro
+
