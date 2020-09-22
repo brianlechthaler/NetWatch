@@ -25,4 +25,5 @@ git clone --verbose https://github.com/brianlechthaler/Netwatch.git /opt/netwatc
 
 echo "----> Installation has completed."
 echo "----> If all above output looks alright, configure settings in /opt/netwatch then start Netwatch like this:"
-echo "----> cd /opt/netwatch ; docker-compose up"
+
+cd /opt/netwatch ; docker-compose up
