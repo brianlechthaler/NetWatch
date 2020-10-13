@@ -14,7 +14,7 @@ services:
      - NET_RAW
     image: "ghcr.io/telekom-security/suricata:2006"
     volumes:
-     - /opt/netwatch/suricata/log:/var/log/suricata
+     - /opt/netwatch/log/suricata/eve.json:/var/log/suricata/eve.json
 
 # Filebeat Service
   filebeat:
