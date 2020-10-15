@@ -1,0 +1,32 @@
+name: InstallNetWatch
+description: github.com/brianlechthaler/netwatch
+schemaVersion: 1.0
+
+phases:
+  - name: build
+    steps:
+      - name: CurlDownloadInstaller
+        action: ExecuteBash
+        inputs:
+          commands:
+            - sudo apt-get install -y curl ; curl https://raw.githubusercontent.com/brianlechthaler/NetWatch/master/install.sh > /tmp/install.sh ; sudo apt purge -y curl
+      - name: SetExecuteOn
+        action: ExecuteBash
+        inputs:
+          commands:
+            - chmod +x /tmp/install.sh
+      - name: ExecuteInstallerScript
+        action: ExecuteBash
+        inputs:
+          commands:
+            - /bin/sh /tmp/install.sh
+      - name: SetExecuteOff
+        action: ExecuteBash
+        inputs:
+          commands:
+            - chmod -x /tmp/install.sh
+      - name: RemoveInstallerScript
+        action: ExecuteBash
+        inputs:
+          commands:
+            - rm -rf /tmp/install.sh
