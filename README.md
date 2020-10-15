@@ -11,5 +11,5 @@ Modern Network Monitoring Appliance
 1) Use `/bin/sh` to execute the install script `/bin/sh /tmp/install.sh`
 2) Start NetWatch `cd /opt/netwatch ; docker-compose up`
 
-# Looking for More?
+## Looking for More?
 If you prefer a more featureful version of NetWatch, with configurations supporting built-in log storage and visualization with the Elastic stack, go check out NetwatchX! https://github.com/brianlechthaler/NetWatchX
